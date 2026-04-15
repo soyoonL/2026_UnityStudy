@@ -17,11 +17,20 @@ public class Test03 : MonoBehaviour
 
     private void Start()
     {
-      for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 10; i++)
         {
-            Debug.Log(i);
+            string stars = "";
+
+            for(int j = 0; j< i; j++)
+            {
+                stars += "*";
+            }
+
+            Debug.Log(stars);
         }
 
-      // i 라는 변수를 만들어서 0을 집어넣는다. i가 10보다 작은 동안 이 안을 반복한다. 매번 i를 1씩 올릴 것이다
+        // i=0이면 j<i가 성립이 안됨(0<0). 그러므로 처음에는 빈 칸으로 나옴
+        // i=1이면 0<1로 성립이 되므로 * 출력, 1<1은 성립이 안되므로 출력 더 이상 안됨
+        // string stars = "" 변수를 만드는 이유는 별을 중첩시키지 않기 위해서이다. 매 줄마다 빈 상자로 초기화시켜 차례대로 피라미드가 나오게 한다
     }
 }
