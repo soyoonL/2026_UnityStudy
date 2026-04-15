@@ -12,25 +12,16 @@ public class Test03 : MonoBehaviour
     // break : 반복문애서 나가기
     // while(true) : 무한반복, 추천하지 않음
     // continue : continue를 만나는 순간 반복문 안에 있는 다음 문장들은 무시하고 다시 올라감
-
-    float kg = 48.5f;
-    int count = 0;
+    // for(초기화 ;반복 조건; 반복명령어
+    
 
     private void Start()
     {
-        while (kg <= 70)
+      for(int i = 0; i < 10; i++)
         {
-            kg += 2f;
-            count++;
-
-            if (kg > 60)
-                continue;
-
-            Debug.Log("햄버거를 " + count + "번 먹었더니" + kg + "kg이야!!");
-            //1~5 count는 실행, 6~10 count는 건너뜀
+            Debug.Log(i);
         }
 
-        Debug.Log("햄버거를 " + count + "번 먹었더니" + kg + "kg이야!!");
-        // 11 count는 70.5인데 이는 while 조건인 70 이하보다 크므로 반복문이 끝나면서 while 바깥에 있는 Debug.Log 실행
+      // i 라는 변수를 만들어서 0을 집어넣는다. i가 10보다 작은 동안 이 안을 반복한다. 매번 i를 1씩 올릴 것이다
     }
 }
