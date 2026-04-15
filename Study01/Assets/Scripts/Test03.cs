@@ -9,17 +9,15 @@ public class Test03 : MonoBehaviour
     // while : 특정 조건을 만족하는 동안 반복
     // do while : 조건에 맞든 안 맞든 일단 한번은 실행하고 조건 비교
 
-    float kg = 48.5f;
-    int count = 0;
+    int dice;
     void Start()
     {
-       while(kg <= 90)
+        do
         {
-            kg += 0.5f;
-            count++;
-        }
+            dice = Random.Range(1, 7);
+            Debug.Log(dice);
+        } while (dice == 6);
 
-       Debug.Log ("햄버거를 " + count + "번 먹었더니 살이 쪘어 ㅠ");
     }
 
  
