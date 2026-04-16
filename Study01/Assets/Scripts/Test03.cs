@@ -6,20 +6,23 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    
+    public int a;
+    int result;
 
     private void Start()
     {
         
         for(int i = 0; i < 10; i++)
         {
-            string stars = "*";
+            int b = 1;
+           
             for (int j = 0; j < i; j++)
             {
-                stars += "**";
+                b++;
+               
             }
-
-            Debug.Log(stars);
+            result = a * b;
+            Debug.Log(a +"*"+ b + "="+ result);
         }
     }
 }
