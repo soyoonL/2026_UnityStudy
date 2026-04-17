@@ -6,26 +6,20 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    
+
 
     private void Start()
     {
-        // 다차원 배열
-        // int[세로,가로]
-        // 배열 크기와 for문의 범위는 항상 같아야 함
-        // 이건 2차원
+        // 가변배열
+        // 배열 안에 배열
 
-        int[,] a = new int[3, 3];
+        int[][] a = new int[3][];
+        // 뒤가 비어있는 이유는 배열 안에 있는 배열의 크기가 각각 다르기 때문이다
 
-        for(int i = 0; i < 3; i++)
-        {
-            for(int j = 0; j < 3; j++)
-            {
-                a[i, j] = i * 6 + j * 9;
-                Debug.Log("i"+i+",j"+j+ "="+a[i, j]);
-            }
-        }
-       
+        a[0] = new int[3] { 1, 2, 3 };
+        a[1] = new int[2] { 2,4 };
+        a[2] = new int[4] {5,6,7,8};
 
+        Debug.Log(a[1][1]);
     }
 }
