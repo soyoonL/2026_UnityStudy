@@ -10,35 +10,22 @@ public class Test03 : MonoBehaviour
 
     private void Start()
     {
-        // int[];
-        // a라는 이름의 배열
-        // 이 안이 어떻게 되어 있는지는 아직 지정이 안된 상태 (null 인 상태)
+        // 다차원 배열
+        // int[세로,가로]
+        // 배열 크기와 for문의 범위는 항상 같아야 함
+        // 이건 2차원
 
-        //  int[] a = new int[5];
-        //  a라는 int 배열에 5개의 정수를 넣을 수 있는 자리를 만듦 (초기화한 상태)
-        //  이름과 자리는 정해져 있지만 아직 그 안에 뭐가 들어갈지 정해지지 않은 상태
-        //  c#에서는 기본값이 정해져 있는데, 숫자가 들어가는 장소는 0,bool형은 false(거짓), 그 이외에는 null이 기본값
+        int[,] a = new int[3, 3];
 
-        //int[] a = new int[5] { 2, 3, 4, 5, 6 };
-
-        //for(int i=0; i<5; i++)
-        //{
-        //    Debug.Log(a[i]);
-        //}
-
-        //  값이 차례대로 방으로 들어감
-        //  new int[5] 부분은 생략가능
-
-        int[] a = new int[5];
-
-        for (int i = 0; i < 5; i++)
+        for(int i = 0; i < 3; i++)
         {
-            a[i] = i * 3;
-            Debug.Log(a[i]);
+            for(int j = 0; j < 3; j++)
+            {
+                a[i, j] = i * 6 + j * 9;
+                Debug.Log("i"+i+",j"+j+ "="+a[i, j]);
+            }
         }
-
-        //  프로그램 중간에 변수의 값을 바꾸는 것도 가능
-            
+       
 
     }
 }
