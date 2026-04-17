@@ -1,25 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Test03 : MonoBehaviour
 {
-
+    
 
     private void Start()
     {
-        // 가변배열
-        // 배열 안에 배열
+        // 크기가 5인 int 배열을 만들고, for문을 이용해 각 칸에 10, 20, 30, 40, 50을 넣은 뒤, 배열의 모든 값을 더한 합계를 Debug.Log로 출력하는 프로그램을 작성하세요.
 
-        int[][] a = new int[3][];
-        // 뒤가 비어있는 이유는 배열 안에 있는 배열의 크기가 각각 다르기 때문이다
+        int[] a = new int[5] ;
 
-        a[0] = new int[3] { 1, 2, 3 };
-        a[1] = new int[2] { 2,4 };
-        a[2] = new int[4] {5,6,7,8};
+        for(int i  = 0; i <5 ; i++)
+        {
 
-        Debug.Log(a[1][1]);
+            a[i] = 2 * 5 * i + 10;
+
+        }
+
+        Debug.Log(a[0] + a[1] + a[2] + a[3] + a[4]);
+        Debug.Log(a[0]);
+        Debug.Log(a[1]);
+        Debug.Log(a[2]);
+        Debug.Log(a[3]);
+        Debug.Log(a[4]);
     }
 }
