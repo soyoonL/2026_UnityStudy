@@ -7,26 +7,26 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    
+    // 가변 배열을 이용해 1번째 줄에는 {1, 2}, 2번째 줄에는 {3, 4, 5}, 3번째 줄에는 {6, 7, 8, 9}를 저장하고,
+    // for문으로 모든 값을 Debug.Log로 출력하는 프로그램을 작성하세요. (힌트: 각 줄의 길이가 다르다는 게 포인트!)
+
+    int[][] a = new int[3][];
 
     private void Start()
     {
-        // 3줄 × 3칸짜리 2차원 배열을 만들어서 구구단 7단의 7×1부터 7×9까지의 결과값을 순서대로 저장하고, 이중 for문으로 모든 값을 Debug.Log로 출력하는 프로그램을 작성하세요.
+        a[0] = new int[2] { 1, 2 };
+        a[1] = new int[3] { 3,4,5 };
+        a[2] = new int[4] { 6, 7, 8, 9 };
 
-        int[,] a  = new int[3, 3];
-        int count = 1;
-
-        for (int i = 0;  i < 3; i++)
+        for(int i = 1; i < 4; i++)
         {
-
-            for(int j = 0; j < 3; j++)
+            //int count = 0;
+            for(int j = 0; j <= i; j++)
             {
-                a[i, j] = 7 *count;
-                count++;
-                Debug.Log(a[i, j]);
+                Debug.Log(a[i-1][j]); 
             }
-           
         }
+
 
 
     }
