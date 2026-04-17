@@ -7,18 +7,15 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class Test03 : MonoBehaviour
 {
     
+
     private void Start()
     {
-        for(int i = 0; i < 10; i++)
+        for(int i = 2; i < 10; i++)
         {
-            string stars = "";
-
-            for(int j = 0; j < i*2+1; j++)
+            for (int j = 0; j < 10; j++)
             {
-                stars += "*";
+                Debug.Log(i + "*" + j + "=" + (i * j));
             }
-
-            Debug.Log(stars);
         }
     }
 }
