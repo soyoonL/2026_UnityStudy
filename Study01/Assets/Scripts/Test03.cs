@@ -16,30 +16,34 @@ public class Test03 : MonoBehaviour
 
     private void Start()
     {
-        // List <string> list 까지만 하면 이름만 선언해준것,new List<string>();를 넣어 자리까지 만들어주기
-        List<string> movie = new List<string>();
+        // Dictionary : 사전
+        // 우리가 사전에서 단어를 찾으면 단어와 단어에 관한 내용이 서술되어 있다. 여기서 단어는 Key, 내용은 Value 라고 볼 수 있다.
+        // Key값으로 보통 문자열을 많이 사용하지만 숫자가 들어가도 괜춘
 
-        movie.Add("HarryPorter");
-        movie.Add("US");
-        movie.Add("About Time");
+        // Key값으로 string, value 값으로 string을 가지는 Dictionary
+        // Dictionary는 Key 값으로 값을 가져오기 때문에 순서를 알 수 없으므로 foods[0] 이런 식으로 값을 가져오는 것이 안되며 foods.Insert도 사용이 안된다.
+        Dictionary<string,string> foods = new Dictionary<string,string>();
 
-        movie.Insert(0, "matrix");
-        movie.Clear();
-        //movie.RemoveAt(1);
-        //movie.Remove("HarryPorter");
+        foods.Add("한국", "약과");
+        foods.Add("일본", "당고");
+        foods.Add("중국", "탕후루");
+        foods.Add("미국", "케이크쉐이크");
 
-        // 대부분 명령을 수행할때에는 괄호를 쓰지만 Count 같은 경우 괄호를 따로 쓰지 않음
-        for (int i = 0; i < movie.Count; i++)
-        {
-            Debug.Log(movie[i]);
-        }
+        // 중간에 값을 교체하는 것도 가능
+        // Key 값이 같은 두 개의 value는 존재할 수 없다
+        foods["한국"] = "개성주악";
+        Debug.Log(foods["한국"]);
 
-        // Contains : 이 리스트에 "matrix'가 들어가 있는지
-        // Debug.Log(movie.Contains("matrix"));
-        // IndexOf : 이 matrix의 문자열이 몇번인지 알려주는 
-        // 없는 내용을 넣으면 결과는 -1이 나옴
-        // Debug.Log(movie.IndexOf("matrix"));
+        // ContainsKey : 이 Key를 가지고 있는 원소가 있는지
+        Debug.Log(foods.ContainsKey("미국"));
 
+        // ContainsValue : Value 중에 이러한 Value가 존재하는지
+        Debug.Log(foods.ContainsValue("당고"));
+
+        // Remove : Key 값을 통해서 삭제를 함
+        // Clear도 가능
+        foods.Remove("일본");
+        foods.Clear();
 
 
     }
