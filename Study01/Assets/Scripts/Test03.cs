@@ -13,21 +13,40 @@ public class Test03 : MonoBehaviour
     // foreach( 데이터타입 변수명 in 컬렉션명 ){}
     private void Start()
     {
-        // 가변배열
-        int[][] a = new int[5][];
-        a[0] = new int[5] { 1, 2, 3, 4, 5 };
-        a[1] = new int[5] { 6, 2, 3, 4, 5 };
-        a[2] = new int[5] { 7, 2, 3, 4, 5 };
-        a[3] = new int[5] { 8, 2, 3, 4, 5 };
-        a[4] = new int[5] { 9, 2, 3, 4, 5 };
+        // List
 
-        foreach (int[] numbers in a)
+        List<string> games = new List<string>();
+
+        games.Add("젤다의 전설");
+        games.Add("데빌메이크라이");
+        games.Add("발더스게이트3");
+        games.Add("레지던트 이블");
+
+        foreach (string game in games)
         {
-            foreach (int i in numbers)
-            {
-                Debug.Log(i);
-            }
-           
+            Debug.Log(game);
+        }
+
+        // Dictionary
+
+        Dictionary<string,int> points = new Dictionary<string,int>();
+
+        points.Add("Slime", 5);
+        points.Add("Zombie", 10);
+        points.Add("Gobline", 15);
+        points.Add("Dragone", 20);
+
+        // 방법 1. Key-Value 쌍을 가지고 오는 것 (KeyValuePair)
+        // KeyValuePair : 두 가지 자료형을 묶어가지고 하나의 변수에 넣는 것
+        foreach (KeyValuePair<string,int> pair in points)
+        {
+            Debug.Log(pair.Key + ":" + pair.Value);
+        }
+
+        // 방법 2. Dictionary가 가지고 있는 Key들만 모아놓은 컬렉션을 꺼내서 쓸 수 있는 것 (points.Keys)
+        foreach (string enemy in points.Keys)
+        {
+            Debug.Log(enemy + ":" + points[enemy]);
         }
     }
 
