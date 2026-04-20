@@ -8,24 +8,32 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    public int a;
-    public int b;
-    int c=1;
+    // 2차원 가변배열을 만들어 정수를 저장한다. 그 가변배열에 저장된 수 중, 10이 넘는 수만을 골라 리스트에 채운다.
    
     private void Start()
     {
-        int[] n = new int[10];
+        int[][] a = new int[3][];
+        List<int> b = new List<int>();
 
-        for(int i = 1; i < 11; i++)
-        {
-           
-            n[i-1] = a * c;
-            c *= b;
-        }
+        a[0] =new int[3] { 5,10,15};
+        a[1] = new int[3] { 3, 6, 9 };
+        a[2] = new int[3] {4,8,12};
 
-        foreach(int result in n)
+       foreach(int[] numbers in a)
+       {
+            foreach(int i in numbers)
+            {
+                if (i > 10)
+                {
+                    b.Add(i);
+                    
+                }
+            }
+       }
+
+       foreach(int c in b)
         {
-            Debug.Log(result);
+            Debug.Log(c);
         }
     }
     
