@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -8,35 +9,33 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    // 2차원 가변배열을 만들어 정수를 저장한다. 그 가변배열에 저장된 수 중, 10이 넘는 수만을 골라 리스트에 채운다.
-   
+    // 크기 10의 정수 배열을 만들고, 원하는 수를 넣어 초기화한다. 그 배열의 저장된 수의 순서를 뒤집는다.
+
+    
     private void Start()
     {
-        int[][] a = new int[3][];
-        List<int> b = new List<int>();
+        int[] a = { 3, 7, 1, 9, 2, 8, 4, 6, 5, 10 };
+        int b = 9;
+        
 
-        a[0] =new int[3] { 5,10,15};
-        a[1] = new int[3] { 3, 6, 9 };
-        a[2] = new int[3] {4,8,12};
-
-       foreach(int[] numbers in a)
-       {
-            foreach(int i in numbers)
-            {
-                if (i > 10)
-                {
-                    b.Add(i);
-                    
-                }
-            }
-       }
-
-       foreach(int c in b)
+        for (int i = 0; i < 5; i++)
         {
-            Debug.Log(c);
+            int temp = a[i];
+            a[i] = a[b];
+            a[b] = temp;
+            b = b - 1;
+           
         }
+
+       
+
+        foreach (int  x in a)
+        {
+            Debug.Log(x);
+        }
+
     }
-    
+
 
 
 }
