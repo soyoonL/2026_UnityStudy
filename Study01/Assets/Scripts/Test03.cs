@@ -9,32 +9,29 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    // 5x5 크기의 bool 2차원 배열을 만든다. a[i,j]라고 했을 때,i가 더 클때는 true, j가 더 클때는 false를 넣어 배열을 채운다.
-
+    // 1부터 1000까지의 수 중에서, 0과 5로만 이루어진 수를 찾아 리스트에 넣고 출력
+    // % 10 : 숫자의 마지막 자릿수를 구함
+    // / 10 : 마지막 자릿수를 제거함
     
     private void Start()
     {
-        bool [,] a = new bool[5,5];
-
-        for(int i = 0; i < 5; i++)
+        
+        List<int> numbers = new List<int>();
+        for (int i = 0; i <= 1000; i++)
         {
-            for(int j = 0; j < 5; j++)
+            if(i % 10 == 0 || i%10 == 5)
             {
-                if (i > j)
+                if(i/10 == 0 || i/10 == 5 || i/10==50 || i/10 == 55)
                 {
-                    a[i,j] = true;
+                    numbers.Add(i);
                 }
-                else if (j > i)
-                {
-                    a[i,j] = false;
-                }
-                else if(i == j)
-                {
-                    a[i, j] = false;
-                }
-
-                Debug.Log(a[i,j]);
             }
+            
+        }
+
+       foreach(int number in numbers)
+        {
+            Debug.Log(number);
         }
 
     }
