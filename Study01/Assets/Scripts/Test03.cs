@@ -9,29 +9,32 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Test03 : MonoBehaviour
 {
-    // 크기 10의 정수 배열을 만들고, 원하는 수를 넣어 초기화한다. 그 배열의 저장된 수의 순서를 뒤집는다.
+    // 5x5 크기의 bool 2차원 배열을 만든다. a[i,j]라고 했을 때,i가 더 클때는 true, j가 더 클때는 false를 넣어 배열을 채운다.
 
     
     private void Start()
     {
-        int[] a = { 3, 7, 1, 9, 2, 8, 4, 6, 5, 10 };
-        int b = 9;
-        
+        bool [,] a = new bool[5,5];
 
-        for (int i = 0; i < 5; i++)
+        for(int i = 0; i < 5; i++)
         {
-            int temp = a[i];
-            a[i] = a[b];
-            a[b] = temp;
-            b = b - 1;
-           
-        }
+            for(int j = 0; j < 5; j++)
+            {
+                if (i > j)
+                {
+                    a[i,j] = true;
+                }
+                else if (j > i)
+                {
+                    a[i,j] = false;
+                }
+                else if(i == j)
+                {
+                    a[i, j] = false;
+                }
 
-       
-
-        foreach (int  x in a)
-        {
-            Debug.Log(x);
+                Debug.Log(a[i,j]);
+            }
         }
 
     }
